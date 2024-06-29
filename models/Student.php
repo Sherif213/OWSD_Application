@@ -12,6 +12,7 @@ class Student extends Model {
         'last_name',
         'gender',
         'Citizenship',
+        'dateOfBirth',
         'Country_of_Residence',
         'Country_of_Visa',
         'Residence_Permit',

@@ -2,9 +2,9 @@
 session_start();
 
 require __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/config/database.php';
-require_once __DIR__ . '/models/Student.php';
-require_once __DIR__ . '/models/Attachment.php';
+require_once __DIR__ . '/config/database.php'; // Adjust path as necessary
+require_once __DIR__ . '/models/Student.php'; // Adjust path as necessary
+require_once __DIR__ . '/models/Attachment.php'; // Adjust path as necessary
 
 use App\Models\Student;
 use App\Models\Attachment;
@@ -55,11 +55,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     writeToLog("Processing form submission...\n");
 
     // Establish database connection if not already done
-    require_once __DIR__ . '/config/database.php';
+    require_once __DIR__ . '/config/database.php'; // Adjust path as necessary
 
     // Prepare student data
     $nationalityValue = $_POST['Citizenship'];
     $countryName = getCountryName($nationalityValue);
+    $nationalityValue2 = $_POST['Country_of_Residence'];
+    $countryName2 = getCountryName($nationalityValue2);
+    $nationalityValue3 = $_POST['country'];
+    $countryName3 = getCountryName($nationalityValue3);
+    $nationalityValue4 = $_POST['Bachelor_country'];
+    $countryName4 = getCountryName($nationalityValue4);
 
     $studentData = [
         'submissionId' => uniqid(),
@@ -67,12 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'last_name' => $_POST['last_name'],
         'gender' => $_POST['gender'],
         'Citizenship' => $countryName,
-        'date_of_birth' => $_POST['date_of_birth'],
-        'Country_of_Residence' => $_POST['Country_of_Residence'],
+        'dateOfBirth' => $_POST['date_of_birth'],
+        'Country_of_Residence' => $countryName2,
         'Country_of_Visa' => $_POST['Country_of_Visa'],
         'Residence_Permit' => $_POST['Residence_Permit'],
         'Turkish_Nationality' => $_POST['Turkish_Nationality'],
-        'country' => $_POST['country'],
+        'country' => $countryName3,
         'telephone' => $_POST['telephone'],
         'home_address' => $_POST['home_address'],
         'City' => $_POST['City'],
@@ -89,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'Reguee_availablitiy' => $_POST['Reguee_availablitiy'],
         'Reguee_number' => isset($_POST['Reguee_number']) ? $_POST['Reguee_number'] : null,
         'Bachelor_University' => $_POST['Bachelor_University'],
-        'Bachelor_country' => $_POST['Bachelor_country'],
+        'Bachelor_country' => $countryName4,
         'Bachelor_gpa' => $_POST['Bachelor_gpa'],
         'Start_Bachelor' => $_POST['Start_Bachelor'],
         'End_Bachelor' => $_POST['End_Bachelor'],

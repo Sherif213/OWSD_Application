@@ -42,7 +42,7 @@ try {
             $table->string('last_name')->nullable();
             $table->string('gender')->nullable();
             $table->string('Citizenship')->nullable();
-            $table->date('date_of_birth')->nullable();
+            $table->date('dateOfBirth');
             $table->string('Country_of_Residence')->nullable();
             $table->string('Country_of_Visa')->nullable();
             $table->string('Residence_Permit')->nullable();
