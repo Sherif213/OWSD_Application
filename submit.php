@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once __DIR__ . '/config/database.php';
 
     // Prepare student data
-    $nationalityValue = $_POST['Nationality'];
+    $nationalityValue = $_POST['Citizenship'];
     $countryName = getCountryName($nationalityValue);
 
     $studentData = [
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         writeToLog("Creating upload directory...\n");
 
         // Create directory if it doesn't exist
-        $uploadDir = 'uploads/' . $studentData['passportName'] . '/';
+        $uploadDir = 'uploads/' . $studentData['first_name'] . '/';
         if (!file_exists($uploadDir)) {
             mkdir($uploadDir, 0777, true); // Creates the directory recursively
             writeToLog("Upload directory created: $uploadDir\n");

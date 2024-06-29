@@ -9,7 +9,7 @@ class Attachment extends Model {
 
     protected $fillable = [
         'submissionId',
-        'firstName',
+        'first_name',
         'personal_picture',
         'personal_CV',
         'passport_copy',

@@ -36,7 +36,7 @@ if (!isset($queryParams['AuthKey'])) {
 $routes = [
     '' => 'OWSD.php',
     '/' => 'OWSD.php',
-    'SuccessfulRegisteration' => 'signUpSuccessful.php',
+    'SuccessfulRegistration' => 'signUpSuccessful.php',
     'secretAdmin' => 'login.php',
     'applicationFormAdminPanel' => 'admin_panel.php',
     'contact' => 'contact.php',

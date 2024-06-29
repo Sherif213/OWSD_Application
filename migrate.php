@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 // Define the path to the log file
@@ -16,14 +16,14 @@ try {
 
     // Set the database connection
     $capsule->addConnection([
-        'driver'    => 'mysql',
-        'host'      => 'localhost',
-        'database'  => 'unesco_app',
-        'username'  => 'unesco_admin',
-        'password'  => 'kfNhTW3vNqh',
-        'charset'   => 'utf8',
-        'collation' => 'utf8_unicode_ci',
-        'prefix'    => '',
+        'driver' => 'mysql',
+        'host' => 'localhost',
+        'database' => 'owsd',
+        'username' => 'root',
+        'password' => '1532910',
+        'charset' => 'utf8mb4',
+        'collation' => 'utf8mb4_general_ci',
+        'prefix' => '',
     ]);
 
     // Set the Capsule Manager instance as global
@@ -35,7 +35,7 @@ try {
     // Check if the 'students' table exists before creating it
     if (!Capsule::schema()->hasTable('students')) {
         // Create 'students' table
-        Capsule::schema()->create('students', function (Blueprint $table) {
+        Capsule::schema()->create('students', function ($table) {
             $table->increments('id');
             $table->string('submissionId')->unique();
             $table->string('first_name');
