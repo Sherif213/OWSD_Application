@@ -17,13 +17,16 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        .hidden { display: none; }
+    </style>
 
 </head>
 
 <body>
     <div class="wrapper">
         <div class="container">
-            <?php include "include/JuniorPeace.php" ?>
+            <?php include "include/LogoSection.php" ?>
             <!-- Text Section -->
             <div class="text-section">
                 <h1></h1>

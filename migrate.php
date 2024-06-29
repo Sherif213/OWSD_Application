@@ -35,34 +35,44 @@ try {
     // Check if the 'students' table exists before creating it
     if (!Capsule::schema()->hasTable('students')) {
         // Create 'students' table
-        Capsule::schema()->create('students', function ($table) {
+        Capsule::schema()->create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->string('submissionId')->unique();
-            $table->string('firstName');
-            $table->date('dateOfBirth');
+            $table->string('first_name');
+            $table->string('last_name')->nullable();
             $table->string('gender')->nullable();
-            $table->string('tshirtSize')->nullable();
-            $table->string('nationality')->default('Unknown');
-            $table->string('placeOfBirth')->nullable();
-            $table->string('homeAddress')->nullable();
-            $table->string('email');
-            $table->string('telephone');
-            $table->string('fathersFullName')->nullable();
-            $table->string('fathersEmail')->nullable();
-            $table->string('fathersTelephone')->nullable();
-            $table->string('mothersFullName')->nullable();
-            $table->string('mothersEmail')->nullable();
-            $table->string('mothersTelephone')->nullable();
-            $table->string('passportName')->nullable();
-            $table->string('givenPlace')->nullable();
-            $table->string('passportNumber')->nullable();
-            $table->string('expiryDate')->nullable();
+            $table->string('Citizenship')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('Country_of_Residence')->nullable();
+            $table->string('Country_of_Visa')->nullable();
+            $table->string('Residence_Permit')->nullable();
+            $table->string('Turkish_Nationality')->nullable();
+            $table->string('country')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('home_address')->nullable();
+            $table->string('City')->nullable();
+            $table->string('Postal_Code')->nullable();
+            $table->string('fathers_full_name')->nullable();
+            $table->string('Occupation_first')->nullable();
+            $table->string('fathers_email')->nullable();
+            $table->string('fathers_telephone')->nullable();
+            $table->string('mothers_full_name')->nullable();
+            $table->string('Occupation_second')->nullable();
+            $table->string('mothers_email')->nullable();
+            $table->string('mothers_telephone')->nullable();
+            $table->string('passport_availablitiy')->nullable();
+            $table->string('Reguee_availablitiy')->nullable();
+            $table->string('Reguee_number')->nullable();
+            $table->string('Bachelor_University')->nullable();
+            $table->string('Bachelor_country')->nullable();
+            $table->float('Bachelor_gpa')->nullable();
+            $table->date('Start_Bachelor')->nullable();
+            $table->date('End_Bachelor')->nullable();
+            $table->string('Turkish_Proficiency')->nullable();
+            $table->string('English_Proficiency')->nullable();
             $table->string('course');
-            $table->string('institutionName');
-            $table->string('department')->nullable();
-            $table->string('institutionAddress')->nullable();
-            $table->string('institutionEmail')->nullable();
-            $table->string('institutionTelephone')->nullable();
+            $table->text('work_experience')->nullable();
+            $table->text('brief_statement')->nullable();
             $table->string('iban');
             $table->timestamps();
         });
@@ -79,12 +89,13 @@ try {
             $table->increments('id');
             $table->string('submissionId');
             $table->string('firstName');
-            $table->string('studentCertificate')->nullable();
-            $table->string('photo')->nullable();
-            $table->string('passportName')->nullable();
-            $table->string('passportCopy')->nullable();
-            $table->string('Recommendation_Letter')->nullable();
-            $table->string('Motivation_Letter')->nullable();
+            $table->string('personal_picture')->nullable();
+            $table->string('personal_CV')->nullable();
+            $table->string('passport_copy')->nullable();
+            $table->string('Reguee_copy')->nullable();
+            $table->string('Bachelors_Diploma')->nullable();
+            $table->string('Bachelors_Transcript')->nullable();
+            $table->string('Equivalency_Paper')->nullable();
             $table->timestamps();
         });
         // Output a success message

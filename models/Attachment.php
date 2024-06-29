@@ -10,12 +10,13 @@ class Attachment extends Model {
     protected $fillable = [
         'submissionId',
         'firstName',
-        'studentCertificate',
-        'photo',
-        'passportName',
-        'passportCopy',
-        // 'Recommendation_Letter',
-        // 'Motivation_Letter'
+        'personal_picture',
+        'personal_CV',
+        'passport_copy',
+        'Reguee_copy',
+        'Bachelors_Diploma',
+        'Bachelors_Transcript',
+        'Equivalency_Paper ',
     ];
 
     public $timestamps = true; // Enable timestamps (created_at and updated_at)

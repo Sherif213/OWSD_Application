@@ -34,16 +34,11 @@ if (!isset($queryParams['AuthKey'])) {
 
 // Allowed routes
 $routes = [
-    '' => 'mainPage.php',
-    '/' => 'mainPage.php',
-    'unescoPeaceProgramInfo' => 'JuniorPeacePolicy.php',
-    'unescoSummerProgramInfo' => 'SummerDiplomacyPolicy.php',
-    'JuniorPeaceFormApplication' => 'JuniorPeace.php',
-    'SummerDiplomacyFormApplication' => 'SummerDiplomacy.php',
+    '' => 'OWSD.php',
+    '/' => 'OWSD.php',
     'SuccessfulRegisteration' => 'signUpSuccessful.php',
     'secretAdmin' => 'login.php',
     'applicationFormAdminPanel' => 'admin_panel.php',
-    'JuniorPeace' => 'JuniorPeace.php',
     'contact' => 'contact.php',
 ];
 

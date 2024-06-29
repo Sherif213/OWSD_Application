@@ -12,9 +12,6 @@ use App\Models\Attachment;
 // Define the path to the log file
 $logFile = __DIR__ . '/debug.log';
 
-
-
-
 // Function to retrieve country name based on nationality value
 function getCountryName($nationalityValue)
 {
@@ -26,7 +23,7 @@ function getCountryName($nationalityValue)
     if ($country) {
         return $country->name;
     } else {
-        return null; 
+        return null; // Handle case where country is not found
     }
 }
 
@@ -57,60 +54,71 @@ function createNewAttachment($imageData)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     writeToLog("Processing form submission...\n");
 
-    // Establish database connection
+    // Establish database connection if not already done
     require_once __DIR__ . '/config/database.php';
 
+    // Prepare student data
     $nationalityValue = $_POST['Nationality'];
     $countryName = getCountryName($nationalityValue);
 
     $studentData = [
         'submissionId' => uniqid(),
-        'firstName' => $_POST['first_name'],
-        'dateOfBirth' => $_POST['date_of_birth'],
+        'first_name' => $_POST['first_name'],
+        'last_name' => $_POST['last_name'],
         'gender' => $_POST['gender'],
-        'tshirtSize' => $_POST['tshirt_size'],
-        'nationality' => $countryName,
-        'placeOfBirth' => $_POST['place_of_birth'],
-        'homeAddress' => $_POST['home_address'],
-        'email' => $_POST['email'],
+        'Citizenship' => $countryName,
+        'date_of_birth' => $_POST['date_of_birth'],
+        'Country_of_Residence' => $_POST['Country_of_Residence'],
+        'Country_of_Visa' => $_POST['Country_of_Visa'],
+        'Residence_Permit' => $_POST['Residence_Permit'],
+        'Turkish_Nationality' => $_POST['Turkish_Nationality'],
+        'country' => $_POST['country'],
         'telephone' => $_POST['telephone'],
-        'fathersFullName' => $_POST['fathers_full_name'],
-        'fathersEmail' => $_POST['fathers_email'],
-        'fathersTelephone' => $_POST['fathers_telephone'],
-        'mothersFullName' => $_POST['mothers_full_name'],
-        'mothersEmail' => $_POST['mothers_email'],
-        'mothersTelephone' => $_POST['mothers_telephone'],
-        'passportName' => $_POST['passport_name'],
-        'givenPlace' => $_POST['given_place'],
-        'passportNumber' => $_POST['passport_number'],
-        'expiryDate' => $_POST['expiry_date'],
+        'home_address' => $_POST['home_address'],
+        'City' => $_POST['City'],
+        'Postal_Code' => $_POST['Postal_Code'],
+        'fathers_full_name' => $_POST['fathers_full_name'],
+        'Occupation_first' => $_POST['Occupation_first'],
+        'fathers_email' => $_POST['fathers_email'],
+        'fathers_telephone' => $_POST['fathers_telephone'],
+        'mothers_full_name' => $_POST['mothers_full_name'],
+        'Occupation_second' => $_POST['Occupation_second'],
+        'mothers_email' => $_POST['mothers_email'],
+        'mothers_telephone' => $_POST['mothers_telephone'],
+        'passport_availablitiy' => $_POST['passport_availablitiy'],
+        'Reguee_availablitiy' => $_POST['Reguee_availablitiy'],
+        'Reguee_number' => isset($_POST['Reguee_number']) ? $_POST['Reguee_number'] : null,
+        'Bachelor_University' => $_POST['Bachelor_University'],
+        'Bachelor_country' => $_POST['Bachelor_country'],
+        'Bachelor_gpa' => $_POST['Bachelor_gpa'],
+        'Start_Bachelor' => $_POST['Start_Bachelor'],
+        'End_Bachelor' => $_POST['End_Bachelor'],
+        'Turkish_Proficiency' => $_POST['Turkish_Proficiency'],
+        'English_Proficiency' => $_POST['English_Proficiency'],
         'course' => $_POST['course'],
-        'institutionName' => $_POST['institution_name'],
-        'department' => $_POST['department'],
-        'institutionAddress' => $_POST['institution_address'],
-        'institutionEmail' => $_POST['institution_email'],
-        'institutionTelephone' => $_POST['institution_telephone'],
+        'work_experience' => $_POST['work_experience'],
+        'brief_statement' => $_POST['brief_statement'],
         'iban' => $_POST['iban']
     ];
 
+    // Prepare image data
     $imageData = [
         'submissionId' => $studentData['submissionId'],
-        'firstName' => $_POST['first_name'],
-        'studentCertificate' => $_FILES['student_certificate']['name'],
-        'photo' => $_FILES['photo']['name'],
-        'passportName' => $_POST['passport_name'],
-        'passportCopy' => $_FILES['passport_copy']['name'],
-        // 'Recommendation_Letter' => $_FILES['Recommendation_Letter']['name'], 
-        // 'Motivation_Letter' => $_FILES['Motivation_Letter']['name'] 
+        'first_name' => $_POST['first_name'],
+        'personal_picture' => $_FILES['personal_picture']['name'],
+        'personal_CV' => $_FILES['personal_CV']['name'],
+        'passport_copy' => $_FILES['passport_copy']['name'],
+        'Reguee_copy' => isset($_FILES['Reguee_copy']['name']) ? $_FILES['Reguee_copy']['name'] : null,
+        'Bachelors_Diploma' => $_FILES['Bachelors_Diploma']['name'],
+        'Bachelors_Transcript' => $_FILES['Bachelors_Transcript']['name'],
+        'Equivalency_Paper' => $_FILES['Equivalency_Paper']['name'],
     ];
-    
-    try {
-        $passportName = $_POST['passport_name'];
 
+    try {
         writeToLog("Creating upload directory...\n");
 
         // Create directory if it doesn't exist
-        $uploadDir = 'uploads/' . $passportName . '/';
+        $uploadDir = 'uploads/' . $studentData['passportName'] . '/';
         if (!file_exists($uploadDir)) {
             mkdir($uploadDir, 0777, true); // Creates the directory recursively
             writeToLog("Upload directory created: $uploadDir\n");
@@ -118,21 +126,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         writeToLog("Creating new student and attachment...\n");
 
+        // Create new student and attachment records
         $newStudent = createNewStudent($studentData);
         $newAttachment = createNewAttachment($imageData);
 
         // Handle file uploads
-        move_uploaded_file($_FILES['student_certificate']['tmp_name'], $uploadDir . $_FILES['student_certificate']['name']);
-        move_uploaded_file($_FILES['photo']['tmp_name'], $uploadDir . $_FILES['photo']['name']);
+        move_uploaded_file($_FILES['personal_picture']['tmp_name'], $uploadDir . $_FILES['personal_picture']['name']);
+        move_uploaded_file($_FILES['personal_CV']['tmp_name'], $uploadDir . $_FILES['personal_CV']['name']);
         move_uploaded_file($_FILES['passport_copy']['tmp_name'], $uploadDir . $_FILES['passport_copy']['name']);
-        // move_uploaded_file($_FILES['Recommendation_Letter']['tmp_name'], $uploadDir . $_FILES['Recommendation_Letter']['name']);
-        // move_uploaded_file($_FILES['Motivation_Letter']['tmp_name'], $uploadDir . $_FILES['Motivation_Letter']['name']);
+        if (isset($_FILES['Reguee_copy'])) {
+            move_uploaded_file($_FILES['Reguee_copy']['tmp_name'], $uploadDir . $_FILES['Reguee_copy']['name']);
+        }
+        move_uploaded_file($_FILES['Bachelors_Diploma']['tmp_name'], $uploadDir . $_FILES['Bachelors_Diploma']['name']);
+        move_uploaded_file($_FILES['Bachelors_Transcript']['tmp_name'], $uploadDir . $_FILES['Bachelors_Transcript']['name']);
+        move_uploaded_file($_FILES['Equivalency_Paper']['tmp_name'], $uploadDir . $_FILES['Equivalency_Paper']['name']);
 
         writeToLog("Data insertion successful.\n");
-        
 
         // Redirect to success page
-        header('Location: /SuccessfulRegisteration');
+        header('Location: /SuccessfulRegistration');
         exit;
     } catch (Exception $e) {
         // Log the error and display a generic error message

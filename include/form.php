@@ -5,76 +5,24 @@
         <img src="images/questionMark.jpg" alt="Texture Image" class="texture-image1">
         <h2 class="headline1">IMPORTANT INFORMATION</h2>
     </div>
-
-
-    <!-- Left Section -->
     <div class="left-section">
-        <!-- Program Dates Section -->
-        <div class="section" style="min-height: 48%;">
-            <h3>PROGRAM DATES</h3>
-            <div class="programDatesContent">
-                <p>Arrival of International Participants: <strong>6th and 7th
-                        July</strong>.<span>&#9992;</span></p>
-                <p>Orientation Day: <strong>8th July</strong> </p>
-                <p>Program Courses and activities: <strong>9th July till 18th July</strong></p>
-                <p>Closing Ceremony: <strong>19th July</strong></p>
-                <p>Departure of International Participants: <strong>20th July</strong></p>
-            </div>
-        </div>
-        <!-- Payment Method Section -->
-        <div class="section">
-            <h3>PAYMENT DETAILS</h3>
-            <div class="programDatesContent">
-                <p>After your application has been reviewed, you will receive the payment details along with
-                    your acceptance letter.</p>
-            </div>
-        </div>
-        <!-- Schedule Section -->
-        <div class="section">
-            <h3>SCHEDULE</h3>
-            <div class="programDatesContent">
-                <strong>
-                    <p>You can check Schedule <a href="#" id="openSchedule" class="terms-link">HERE</a> !
-                    </p>
-                </strong>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Right Section -->
-    <div class="right-section">
-        <!-- Registration Deadline Section -->
         <div class="section" style="min-height: 22.5%;">
             <h3>REGISTRATION DEADLINES</h3>
             <div class="programDatesContent">
                 <p>Registration Deadline: <strong>25th June</strong></p>
             </div>
         </div>
+    </div>
+    <!-- Right Section -->
+    <div class="right-section">
         <!-- Courses Section -->
         <div class="section" style="min-height: 22%;">
             <h3>COURSES</h3>
             <div class="programDatesContent">
-                <p>International Relations and Intercultural Competence</p>
+                <p>Courses will be here</p>
             </div>
         </div>
         <!-- Fees Section -->
-        <div class="section" style="min-height: 47%;">
-            <h3>FEES</h3>
-            <div class="programDatesContent">
-                <p>The fee will be communicated to you via <strong>email</strong> after your application has been
-                    reviewed.</p>
-                <p>This process ensures that you receive all necessary information regarding the cost of the program.
-                </p>
-
-            </div>
-            <div class="alert alert-warning" role="alert">
-                <i class="fa-solid fa-circle-info"></i>&nbsp;
-                After payment, share receipt for confirmation.
-            </div>
-        </div>
-
-
     </div>
     <div class="bottom-section1">
 
@@ -134,7 +82,7 @@
         <div class="bottom-section3">
             <div class="left-section3">
                 <label for="Country_of_Visa">Country of Visa</label>
-                <input type="text" aria-label="Country of Visa" class="form-control" id="place_of_birth"
+                <input type="text" aria-label="Country of Visa" class="form-control" id="Country_of_Visa"
                     name="Country_of_Visa" required>
             </div>
             <!-- T-Shirt Size -->
@@ -268,41 +216,42 @@
     <div class="information-container5">
         <div class="container-headline1">
             <img src="images/Passport.jpg" alt="Texture Image" class="texture-image2">
-            <h2 class="headline1">PASSPORT INFORMATION</h2>
+            <h2 class="headline1">PASSPORT / REFUGEE INFORMATION</h2>
         </div>
-        <!-- Top Section -->
         <div class="bottom-section3">
-            <!-- Left Section -->
             <div class="left-section3">
-                <label for="passport_name">Name on Passport</label>
-                <input type="text" class="form-control" id="passport_name" name="passport_name" required>
+                <label for="passport_availablitiy">Do you have a Passport?</label>
+                <select class="form-control" id="passport_availablitiy" name="passport_availablitiy" required>
+                    <option selected>--Select--</option>
+                    <option value="YES">Yes</option>
+                    <option value="NO">No</option>
+                </select>
             </div>
-            <!-- Right Section -->
             <div class="right-section3">
-                <label for="given_place">Given Place</label>
-                <input type="text" class="form-control" id="given_place" name="given_place" required>
-            </div>
-        </div>
-
-        <!-- Second Section -->
-        <div class="bottom-section3">
-            <!-- Left Section -->
-            <div class="left-section3">
-                <label for="passport_name_2">Passport Number</label>
-                <input type="text" class="form-control" id="passport_name_2" name="passport_number" required>
-            </div>
-            <!-- Right Section -->
-            <div class="right-section3">
-                <label for="expiry_date">Expiry Date</label>
-                <input type="text" class="form-control" id="expiry_date" name="expiry_date" required>
-            </div>
-        </div>
-
-        <!-- Third Section -->
-        <div class="bottom-section3">
-            <div class="left-section3">
-                <label for="passport_copy" class="input-group-text">Passport Copy</label>
+                <label for="personal_picture">Passport Copy</label>
                 <input type="file" class="form-control" id="passport_copy" name="passport_copy" required>
+            </div>
+        </div>
+        <div class="bottom-section3">
+            <div class="left-section3">
+                <label for="Reguee_availablitiy">Do you have a Reguee Information?</label>
+                <select class="form-control" id="Reguee_availablitiy" name="Reguee_availablitiy" required
+                    onchange="toggleRefugeeFields()">
+                    <option selected>--Select--</option>
+                    <option value="YES">Yes</option>
+                    <option value="NO">No</option>
+                </select>
+            </div>
+            <div class="right-section3 hidden" id="refugeeNumberSection">
+                <label for="Reguee_number">Reguee Number</label>
+                <input type="text" class="form-control" id="Reguee_number" name="Reguee_number">
+            </div>
+        </div>
+
+        <div class="bottom-section3 hidden" id="refugeeCopySection">
+            <div class="left-section3">
+                <label for="Reguee_copy" class="input-group-text">Reguee Copy</label>
+                <input type="file" class="form-control" id="Reguee_copy" name="Reguee_copy">
             </div>
         </div>
     </div>
@@ -323,7 +272,7 @@
                 <input type="text" aria-label="Bachelor_University" class="form-control" id="Bachelor_University"
                     name="Bachelor_University" required>
             </div>
-            
+
         </div>
 
         <div class="bottom-section3">
@@ -408,9 +357,27 @@
             <label for="course">Course</label>
             <select id="course" name="course" required>
                 <option value="">-- Select Course --</option>
-                <option value="Programming With JAVA II">International Relations and Intercultural Competence.
+                <option value="International Relations and Intercultural Competence.">International Relations and Intercultural Competence.
                 </option>
             </select>
+        </div>
+    </div>
+    <div class="information-container4">
+        <div class="container-headline1">
+            <img src="images/Emergency1.jpg" alt="Texture Image" class="texture-image2">
+            <h2 class="headline1">QUESTIONS</h2>
+        </div>
+        <div class="top-section3">
+            <label for="work_experience">Please provide details of relevant volunteer or work experience, if applicable
+                (Max 250 words)</label>
+            <textarea id="work_experience" name="work_experience" class="form-control full-width-input" required></textarea>
+            <div id="workExperienceWordCountMessage" class="word-count-message"></div>
+        </div>
+        <div class="top-section3">
+            <label for="brief_statement">Please provide a brief statement explaining why you are interested in pursuing a
+                master's degree in this program and how it aligns with your career goals. (Max 250 words)</label>
+            <textarea id="brief_statement" name="brief_statement" class="form-control full-width-input" required></textarea>
+            <div id="briefStatementWordCountMessage" class="word-count-message"></div>
         </div>
     </div>
     <div class="information-container8">
@@ -435,8 +402,8 @@
                 <label class="checkbox-container">
                     <input type="checkbox" id="agreeCheckbox" required class="checkbox-input" required>
                     <span class="checkmark"></span>
-                    <span class="checkbox-text">I agree to the <a href="#" id="openModal" class="terms-link">Terms
-                            and Conditions</a></span>
+                    <!-- <span class="checkbox-text">I agree to the <a href="#" id="openModal" class="terms-link">Terms
+                            and Conditions</a></span> -->
                 </label>
             </div>
             <div class="alert alert-warning" role="alert">
@@ -623,3 +590,23 @@
 <script src="src/js/schedule.js"></script>
 <script src="src/js/termsConditions.js"></script>
 <script src="src/js/agree_terms.js"></script>
+<script src="src/js/wordCount.js"></script>
+<script>
+    function toggleRefugeeFields() {
+        var refugeeAvailability = document.getElementById("Reguee_availablitiy").value;
+        var refugeeNumberSection = document.getElementById("refugeeNumberSection");
+        var refugeeCopySection = document.getElementById("refugeeCopySection");
+
+        if (refugeeAvailability === "YES") {
+            refugeeNumberSection.classList.remove("hidden");
+            refugeeCopySection.classList.remove("hidden");
+            document.getElementById("Reguee_number").setAttribute("required", "required");
+            document.getElementById("Reguee_copy").setAttribute("required", "required");
+        } else {
+            refugeeNumberSection.classList.add("hidden");
+            refugeeCopySection.classList.add("hidden");
+            document.getElementById("Reguee_number").removeAttribute("required");
+            document.getElementById("Reguee_copy").removeAttribute("required");
+        }
+    }
+</script>
