@@ -9,7 +9,7 @@
         <div class="section" style="min-height: 22.5%;">
             <h3>REGISTRATION DEADLINES</h3>
             <div class="programDatesContent">
-                <p>Registration Deadline: <strong>25th June</strong></p>
+                <p>Registration Deadline: <strong>30th July</strong></p>
             </div>
         </div>
     </div>
@@ -17,9 +17,12 @@
     <div class="right-section">
         <!-- Courses Section -->
         <div class="section" style="min-height: 22%;">
-            <h3>COURSES</h3>
+            <h3>PROGRAMS</h3>
             <div class="programDatesContent">
-                <p>Courses will be here</p>
+                <select class="form-control">
+                    <option value="">-- Programs --</option>
+                    <?php include "include/programs.php" ?>
+                </select>
             </div>
         </div>
         <!-- Fees Section -->
@@ -41,12 +44,12 @@
 
         <div class="bottom-section3">
             <div class="left-section3">
-                <label for="first_name">First Name</label>
+                <label for="first_name">Legal First Name</label>
                 <input type="text" aria-label="First Name" class="form-control" id="first_name" name="first_name"
                     required>
             </div>
             <div class="right-section3">
-                <label for="last_name">Last Name</label>
+                <label for="last_name">Legal Last Name</label>
                 <input type="text" aria-label="Last Name" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
@@ -60,9 +63,9 @@
                 </select>
             </div>
             <div class="right-section3">
-                <label for="Citizenship">Citizenship</label>
+                <label for="Citizenship">Country Of Origin</label>
                 <select name="Citizenship" class="form-control" required>
-                    <option value="">-- Select Your Citizenship --</option>
+                    <option value="">-- Select Your Country Of Origin --</option>
                     <?php include "include/Citizenship.php" ?>
             </div>
         </div>
@@ -75,30 +78,14 @@
             <div class="right-section3">
                 <label for="Country_of_Residence">Country of Residence</label>
                 <select name="Country_of_Residence" class="form-control" required>
-                    <option value="">-- Select Your Citizenship --</option>
+                    <option value="">-- Select Your Country of Residence --</option>
                     <?php include "include/Citizenship.php" ?>
             </div>
         </div>
         <div class="bottom-section3">
             <div class="left-section3">
-                <label for="Country_of_Visa">Country of Visa</label>
-                <input type="text" aria-label="Country of Visa" class="form-control" id="Country_of_Visa"
-                    name="Country_of_Visa" required>
-            </div>
-            <!-- T-Shirt Size -->
-            <div class="right-section3">
                 <label for="Residence_Permit">Do you have a Residence Permit in Turkiye?</label>
                 <select class="form-control" id="Residence_Permit" name="Residence_Permit" required>
-                    <option selected>--Select--</option>
-                    <option value="YES">Yes</option>
-                    <option value="NO">No</option>
-                </select>
-            </div>
-        </div>
-        <div class="bottom-section3">
-            <div class="left-section3">
-                <label for="Turkish_Nationality">Do you have a Turkish Nationality?</label>
-                <select class="form-control" id="Turkish_Nationality" name="Turkish_Nationality" required>
                     <option selected>--Select--</option>
                     <option value="YES">Yes</option>
                     <option value="NO">No</option>
@@ -234,7 +221,7 @@
         </div>
         <div class="bottom-section3">
             <div class="left-section3">
-                <label for="Reguee_availablitiy">Do you have a Reguee Information?</label>
+                <label for="Reguee_availablitiy">Do you have a Refugee Document?</label>
                 <select class="form-control" id="Reguee_availablitiy" name="Reguee_availablitiy" required
                     onchange="toggleRefugeeFields()">
                     <option selected>--Select--</option>
@@ -243,15 +230,21 @@
                 </select>
             </div>
             <div class="right-section3 hidden" id="refugeeNumberSection">
-                <label for="Reguee_number">Reguee Number</label>
+                <label for="Reguee_number">Refugee Document Number</label>
                 <input type="text" class="form-control" id="Reguee_number" name="Reguee_number">
             </div>
         </div>
 
         <div class="bottom-section3 hidden" id="refugeeCopySection">
             <div class="left-section3">
-                <label for="Reguee_copy" class="input-group-text">Reguee Copy</label>
+                <label for="Reguee_copy">Refugee Document Copy</label>
                 <input type="file" class="form-control" id="Reguee_copy" name="Reguee_copy">
+            </div>
+            <div class="right-section3">
+                <label for="issueing_country">Country Of Issue</label>
+                <select name="issueing_country" class="form-control" required>
+                    <option value="">-- Select Country Of Issue --</option>
+                    <?php include "include/Citizenship.php" ?>
             </div>
         </div>
     </div>
@@ -312,8 +305,14 @@
         </div>
         <div class="bottom-section3">
             <div class="left-section3">
-                <label for="Equivalency_Paper">Equivalency Paper/Denklik Belge </label>
+                <label for="Equivalency_Paper">Equivalency Paper/Denklik Belgesi </label>
                 <input type="file" class="form-control" id="Equivalency_Paper" name="Equivalency_Paper">
+            </div>
+            <div class="right-section3">
+                <div class="alert alert-warning" role="alert">
+                    <i class="fa-solid fa-circle-info"></i>&nbsp;
+                    You can provide Equivalency Paper if you have any!
+                </div>
             </div>
         </div>
     </div>
@@ -347,52 +346,79 @@
                 </select>
             </div>
         </div>
+        <div class="bottom-section3">
+            <div class="left-section3">
+                <label for="Turkish_Proficiency_Document">Turkish Proficiency Document</label>
+                <input type="file" class="form-control" id="Turkish_Proficiency_Document"
+                    name="Turkish_Proficiency_Document">
+            </div>
+            <div class="right-section3">
+                <label for="English_Proficiency_Document">English Proficiency Document</label>
+                <input type="file" class="form-control" id="English_Proficiency_Document"
+                    name="English_Proficiency_Document" required>
+            </div>
+        </div>
     </div>
     <div class="information-container6">
         <div class="container-headline1">
             <img src="images/Course.jpg" alt="Texture Image" class="texture-image2">
-            <h2 class="headline1">COURSE SELECTION</h2>
+            <h2 class="headline1">PROGRAM SELECTION</h2>
         </div>
         <div class="course-selection">
-            <label for="course">Course</label>
+            <label for="course">Program</label>
             <select id="course" name="course" required>
-                <option value="">-- Select Course --</option>
-                <option value="International Relations and Intercultural Competence.">International Relations and Intercultural Competence.
-                </option>
+                <option value="">-- Select Program --</option>
+                <?php include "include/programs.php" ?>
             </select>
         </div>
     </div>
     <div class="information-container4">
         <div class="container-headline1">
             <img src="images/Emergency1.jpg" alt="Texture Image" class="texture-image2">
-            <h2 class="headline1">QUESTIONS</h2>
+            <h2 class="headline1">CONFIRM YOUR APPLICATION</h2>
         </div>
+        <div class="top-section3">
+            <label class="checkbox-container">
+                <input type="checkbox" class="checkbox-input" required>
+                <span class="checkmark"></span>
+                <span class="checkbox-text">I am a woman and a prospective applicant to the 2024 OWSD WISDOM fully
+                    funded Master’s Scholarship.</span>
+            </label>
+        </div>
+        <div class="top-section3">
+            <label class="checkbox-container">
+                <input type="checkbox" class="checkbox-input" required>
+                <span class="checkmark"></span>
+                <span class="checkbox-text">Check this box to confirm that you are a holder of a valid refugee status:
+                    (Temporary Protection)_
+                    (International Protection)_
+                    (International Protection Applicants)_
+                </span>
+            </label>
+        </div>
+        <div class="top-section3">
+            <label class="checkbox-container">
+                <input type="checkbox" class="checkbox-input" required>
+                <span class="checkmark"></span>
+                <span class="checkbox-text">I confirm that personal information of the applicants will be protected under KVKK and not shared with any third parties except the ones OWSD requires etc. 
+                </span>
+            </label>
+        </div>
+        <div class="separator"></div>
         <div class="top-section3">
             <label for="work_experience">Please provide details of relevant volunteer or work experience, if applicable
                 (Max 250 words)</label>
-            <textarea id="work_experience" name="work_experience" class="form-control full-width-input" required></textarea>
+            <textarea id="work_experience" name="work_experience" class="form-control full-width-input"
+                required></textarea>
             <div id="workExperienceWordCountMessage" class="word-count-message"></div>
         </div>
         <div class="top-section3">
-            <label for="brief_statement">Please provide a brief statement explaining why you are interested in pursuing a
+            <label for="brief_statement">Please provide a brief statement explaining why you are interested in pursuing
+                a
                 master's degree in this program and how it aligns with your career goals. (Max 250 words)</label>
-            <textarea id="brief_statement" name="brief_statement" class="form-control full-width-input" required></textarea>
+            <textarea id="brief_statement" name="brief_statement" class="form-control full-width-input"
+                required></textarea>
             <div id="briefStatementWordCountMessage" class="word-count-message"></div>
-        </div>
-    </div>
-    <div class="information-container8">
-        <div class="container-headline1">
-            <img src="images/dollar.jpg" alt="Texture Image" class="texture-image2">
-            <h2 class="headline1">PREFERRED PAYMENT METHOD</h2>
-        </div>
-        <div class="course-selection">
-            <label for="course2">Payment Method</label>
-            <select id="course2" name="iban" required>
-                <option value="">-- Select Payment Method --</option>
-                <option value="ibanTR">Turkish Lira IBAN</option>
-                <option value="ibanUS">US Dollar IBAN</option>
-                <option value="ibanEURO">EURO IBAN</option>
-            </select>
         </div>
     </div>
 
