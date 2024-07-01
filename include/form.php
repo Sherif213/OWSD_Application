@@ -440,7 +440,7 @@
 
     </div>
     <div class="information-container8">
-        <div class="g-recaptcha" data-sitekey="6LdqOvspAAAAAN2h0gs6rDQ9sg6yVwOSoXTJCf1l"></div>
+        <div class="g-recaptcha" data-sitekey="6LdsPwUqAAAAAP8jckcGakQSZ3Byls4vQSi1a4EB"></div>
     </div>
     <div class="information-container8">
         <div class="button-section">
