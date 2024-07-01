@@ -14,9 +14,7 @@ class Student extends Model {
         'Citizenship',
         'dateOfBirth',
         'Country_of_Residence',
-        'Country_of_Visa',
         'Residence_Permit',
-        'Turkish_Nationality',
         'country',
         'telephone',
         'home_address',
@@ -33,7 +31,9 @@ class Student extends Model {
         'passport_availablitiy',
         'Reguee_availablitiy',
         'Reguee_number',
+        'issueing_country',
         'Bachelor_University',
+        'Bachelor_program',
         'Bachelor_country',
         'Bachelor_gpa',
         'Start_Bachelor',
@@ -43,8 +43,6 @@ class Student extends Model {
         'course',
         'work_experience',
         'brief_statement',
-        'iban',
-
     ];
 
     public $timestamps = true;

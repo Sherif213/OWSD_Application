@@ -16,7 +16,9 @@ class Attachment extends Model {
         'Reguee_copy',
         'Bachelors_Diploma',
         'Bachelors_Transcript',
-        'Equivalency_Paper ',
+        'Equivalency_Paper',
+        'Turkish_Proficiency_Document',
+        'English_Proficiency_Document',
     ];
 
     public $timestamps = true; // Enable timestamps (created_at and updated_at)

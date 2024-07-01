@@ -44,9 +44,7 @@ try {
             $table->string('Citizenship')->nullable();
             $table->date('dateOfBirth');
             $table->string('Country_of_Residence')->nullable();
-            $table->string('Country_of_Visa')->nullable();
             $table->string('Residence_Permit')->nullable();
-            $table->string('Turkish_Nationality')->nullable();
             $table->string('country')->nullable();
             $table->string('telephone')->nullable();
             $table->string('home_address')->nullable();
@@ -63,7 +61,9 @@ try {
             $table->string('passport_availablitiy')->nullable();
             $table->string('Reguee_availablitiy')->nullable();
             $table->string('Reguee_number')->nullable();
+            $table->string('issueing_country')->nullable();
             $table->string('Bachelor_University')->nullable();
+            $table->string('Bachelor_program')->nullable();
             $table->string('Bachelor_country')->nullable();
             $table->float('Bachelor_gpa')->nullable();
             $table->date('Start_Bachelor')->nullable();
@@ -73,7 +73,6 @@ try {
             $table->string('course');
             $table->text('work_experience')->nullable();
             $table->text('brief_statement')->nullable();
-            $table->string('iban');
             $table->timestamps();
         });
         // Output a success message
@@ -88,7 +87,7 @@ try {
         Capsule::schema()->create('attachments', function ($table) {
             $table->increments('id');
             $table->string('submissionId');
-            $table->string('firstName');
+            $table->string('first_name');
             $table->string('personal_picture')->nullable();
             $table->string('personal_CV')->nullable();
             $table->string('passport_copy')->nullable();
@@ -96,6 +95,8 @@ try {
             $table->string('Bachelors_Diploma')->nullable();
             $table->string('Bachelors_Transcript')->nullable();
             $table->string('Equivalency_Paper')->nullable();
+            $table->string('Turkish_Proficiency_Document')->nullable();
+            $table->string('English_Proficiency_Document')->nullable();
             $table->timestamps();
         });
         // Output a success message

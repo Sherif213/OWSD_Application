@@ -66,6 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $countryName3 = getCountryName($nationalityValue3);
     $nationalityValue4 = $_POST['Bachelor_country'];
     $countryName4 = getCountryName($nationalityValue4);
+    $nationalityValue5 = $_POST['issueing_country'];
+    $countryName5 = getCountryName($nationalityValue5);
 
     $studentData = [
         'submissionId' => uniqid(),
@@ -75,9 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'Citizenship' => $countryName,
         'dateOfBirth' => $_POST['date_of_birth'],
         'Country_of_Residence' => $countryName2,
-        'Country_of_Visa' => $_POST['Country_of_Visa'],
         'Residence_Permit' => $_POST['Residence_Permit'],
-        'Turkish_Nationality' => $_POST['Turkish_Nationality'],
         'country' => $countryName3,
         'telephone' => $_POST['telephone'],
         'home_address' => $_POST['home_address'],
@@ -94,7 +94,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'passport_availablitiy' => $_POST['passport_availablitiy'],
         'Reguee_availablitiy' => $_POST['Reguee_availablitiy'],
         'Reguee_number' => isset($_POST['Reguee_number']) ? $_POST['Reguee_number'] : null,
+        'issueing_country' => $countryName5,
         'Bachelor_University' => $_POST['Bachelor_University'],
+        'Bachelor_program' => $_POST['Bachelor_program'],
         'Bachelor_country' => $countryName4,
         'Bachelor_gpa' => $_POST['Bachelor_gpa'],
         'Start_Bachelor' => $_POST['Start_Bachelor'],
@@ -104,7 +106,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'course' => $_POST['course'],
         'work_experience' => $_POST['work_experience'],
         'brief_statement' => $_POST['brief_statement'],
-        'iban' => $_POST['iban']
     ];
 
     // Prepare image data
@@ -118,6 +119,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'Bachelors_Diploma' => $_FILES['Bachelors_Diploma']['name'],
         'Bachelors_Transcript' => $_FILES['Bachelors_Transcript']['name'],
         'Equivalency_Paper' => $_FILES['Equivalency_Paper']['name'],
+        'Turkish_Proficiency_Document' => $_FILES['Turkish_Proficiency_Document']['name'],
+        'English_Proficiency_Document' => $_FILES['English_Proficiency_Document']['name'],
     ];
 
     try {
@@ -146,7 +149,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         move_uploaded_file($_FILES['Bachelors_Diploma']['tmp_name'], $uploadDir . $_FILES['Bachelors_Diploma']['name']);
         move_uploaded_file($_FILES['Bachelors_Transcript']['tmp_name'], $uploadDir . $_FILES['Bachelors_Transcript']['name']);
         move_uploaded_file($_FILES['Equivalency_Paper']['tmp_name'], $uploadDir . $_FILES['Equivalency_Paper']['name']);
-
+        move_uploaded_file($_FILES['Turkish_Proficiency_Document']['tmp_name'], $uploadDir . $_FILES['Turkish_Proficiency_Document']['name']);
+        move_uploaded_file($_FILES['English_Proficiency_Document']['tmp_name'], $uploadDir . $_FILES['English_Proficiency_Document']['name']);
         writeToLog("Data insertion successful.\n");
 
         // Redirect to success page

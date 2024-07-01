@@ -261,9 +261,9 @@
                     name="Bachelor_University" required>
             </div>
             <div class="right-section3">
-                <label for="Bachelor_University">Program of Bachelor</label>
-                <input type="text" aria-label="Bachelor_University" class="form-control" id="Bachelor_University"
-                    name="Bachelor_University" required>
+                <label for="Bachelor_program">Program of Bachelor</label>
+                <input type="text" aria-label="Bachelor_program" class="form-control" id="Bachelor_program"
+                    name="Bachelor_program" required>
             </div>
 
         </div>
@@ -422,14 +422,14 @@
         </div>
     </div>
 
-    <div class="information-container9">
+    <!-- <div class="information-container9">
         <div class="top-section6">
             <div class="left-section6">
                 <label class="checkbox-container">
                     <input type="checkbox" id="agreeCheckbox" required class="checkbox-input" required>
                     <span class="checkmark"></span>
-                    <!-- <span class="checkbox-text">I agree to the <a href="#" id="openModal" class="terms-link">Terms
-                            and Conditions</a></span> -->
+                    <span class="checkbox-text">I agree to the <a href="#" id="openModal" class="terms-link">Terms
+                            and Conditions</a></span>
                 </label>
             </div>
             <div class="alert alert-warning" role="alert">
@@ -438,7 +438,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
     <div class="information-container8">
         <div class="g-recaptcha" data-sitekey="6LdsPwUqAAAAAP8jckcGakQSZ3Byls4vQSi1a4EB"></div>
     </div>
