@@ -9,7 +9,7 @@
         <div class="section" style="min-height: 22.5%;">
             <h3>REGISTRATION DEADLINES</h3>
             <div class="programDatesContent">
-                <p>Registration Deadline: <strong>30th July</strong></p>
+                <p>Application Deadline: <strong>8th August 2024</strong></p>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
                 </select>
             </div>
             <div class="right-section3">
-                <label for="personal_picture">Photo</label>
+                <label for="personal_picture">Please upload a recent passport size photo</label>
                 <input type="file" class="form-control" id="personal_picture" name="personal_picture" required>
             </div>
         </div>
@@ -100,6 +100,10 @@
             <div class="left-section3">
                 <label for="personal_CV">CV</label>
                 <input type="file" class="form-control" id="personal_CV" name="personal_CV" required>
+            </div>
+            <div class="right-section3">
+                <label for="personal_picture">Please upload a recent passport size photo</label>
+                <input type="file" class="form-control" id="personal_picture" name="personal_picture" required>
             </div>
         </div>
     </div>
@@ -205,20 +209,7 @@
             <img src="images/Passport.jpg" alt="Texture Image" class="texture-image2">
             <h2 class="headline1">PASSPORT / REFUGEE INFORMATION</h2>
         </div>
-        <div class="bottom-section3">
-            <div class="left-section3">
-                <label for="passport_availablitiy">Do you have a Passport?</label>
-                <select class="form-control" id="passport_availablitiy" name="passport_availablitiy" required>
-                    <option selected>--Select--</option>
-                    <option value="YES">Yes</option>
-                    <option value="NO">No</option>
-                </select>
-            </div>
-            <div class="right-section3">
-                <label for="personal_picture">Passport Copy</label>
-                <input type="file" class="form-control" id="passport_copy" name="passport_copy" required>
-            </div>
-        </div>
+        
         <div class="bottom-section3">
             <div class="left-section3">
                 <label for="Reguee_availablitiy">Do you have a Refugee Document?</label>
@@ -247,6 +238,20 @@
                     <?php include "include/Citizenship.php" ?>
             </div>
         </div>
+        <div class="bottom-section3">
+    <div class="left-section3">
+        <label for="passport_availablitiy">Do you have a Passport?</label>
+        <select class="form-control" id="passport_availablitiy" name="passport_availablitiy" required onchange="togglePassportFields()">
+            <option value="" selected>--Select--</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+        </select>
+    </div>
+    <div class="right-section3 hidden" id="passportCopySection">
+        <label for="passport_copy">Passport Copy</label>
+        <input type="file" class="form-control" id="passport_copy" name="passport_copy">
+    </div>
+</div>
     </div>
 
     <div class="information-container4">
@@ -368,7 +373,7 @@
             <label for="course">Program</label>
             <select id="course" name="course" required>
                 <option value="">-- Select Program --</option>
-                <?php include "include/programs.php" ?>
+                <?php include "include/program.php" ?>
             </select>
         </div>
     </div>
@@ -389,7 +394,7 @@
             <label class="checkbox-container">
                 <input type="checkbox" class="checkbox-input" required>
                 <span class="checkmark"></span>
-                <span class="checkbox-text">Check this box to confirm that you are a holder of a valid refugee status:
+                <span class="checkbox-text">I confirm that I am a holder of a valid refugee status:
                     (Temporary Protection)_
                     (International Protection)_
                     (International Protection Applicants)_
@@ -400,7 +405,7 @@
             <label class="checkbox-container">
                 <input type="checkbox" class="checkbox-input" required>
                 <span class="checkmark"></span>
-                <span class="checkbox-text">I confirm that personal information of the applicants will be protected under KVKK and not shared with any third parties except the ones OWSD requires etc. 
+                <span class="checkbox-text">I confirm that personal information of the applicants will be protected under Turkish Personal Data Protection Law (KVKK) and not shared with any third parties except the ones OWSD requires etc. 
                 </span>
             </label>
         </div>
@@ -633,6 +638,22 @@
             refugeeCopySection.classList.add("hidden");
             document.getElementById("Reguee_number").removeAttribute("required");
             document.getElementById("Reguee_copy").removeAttribute("required");
+        }
+    }
+    
+</script>
+<script>
+    function togglePassportFields() {
+        var PassportAvailability = document.getElementById("passport_availablitiy").value;
+        var PassportCopySection = document.getElementById("passportCopySection");
+        var PassportCopyInput = document.getElementById("passport_copy");
+
+        if (PassportAvailability === "YES") {
+            PassportCopySection.classList.remove("hidden");
+            PassportCopyInput.setAttribute("required", "required");
+        } else {
+            PassportCopySection.classList.add("hidden");
+            PassportCopyInput.removeAttribute("required");
         }
     }
 </script>
