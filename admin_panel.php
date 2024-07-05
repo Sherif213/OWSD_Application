@@ -40,36 +40,51 @@ $students = Capsule::table('students')->get();
                         <th>ID</th>
                         <th>Submission ID</th>
                         <th>First Name</th>
-                        <th>Date of Birth</th>
+                        <th>Last Name</th>
                         <th>Gender</th>
-                        <th>T-Shirt Size</th>
-                        <th>Nationality</th>
-                        <th>Place of Birth</th>
-                        <th>Home Address</th>
-                        <th>Email</th>
-                        <th>Telephone</th>
+                        <th>Country of Origin</th>
+                        <th>date Of Birth</th>
+                        <th>Country of Residence</th>
+                        <th>Residence Permit</th>
+                        <th>country</th>
+                        <th>telephone</th>
+                        <th>home address</th>
+                        <th>City</th>
+                        <th>Postal Code</th>
                         <th>Father's Full Name</th>
+                        <th>Father's Occupation</th>
                         <th>Father's Email</th>
                         <th>Father's Telephone</th>
                         <th>Mother's Full Name</th>
+                        <th>Mother's Occupation</th>
                         <th>Mother's Email</th>
                         <th>Mother's Telephone</th>
-                        <th>Passport Name</th>
-                        <th>Given Place</th>
-                        <th>Passport Number</th>
-                        <th>Expiry Date</th>
-                        <th>Course</th>
-                        <th>Institution Name</th>
-                        <th>Department</th>
-                        <th>Institution Address</th>
-                        <th>Institution Email</th>
-                        <th>Institution Telephone</th>
-                        <th>IBAN</th>
+                        <th>passport availablitiy</th>
+                        <th>Reguee_availablitiy</th>
+                        <th>Reguee number</th>
+                        <th>issueing country</th>
+                        <th>Bachelor University</th>
+                        <th>Bachelor program</th>
+                        <th>Bachelor country</th>
+                        <th>Bachelor gpa</th>
+                        <th>Start Bachelor</th>
+                        <th>End Bachelor</th>
+                        <th>Turkish Proficiency</th>
+                        <th>English Proficiency</th>
                         <th>Student Certificate</th>
-                        <th>Photo</th>
-                        <th>Passport Copy</th>
+                        <th>Program</th>
+                        <th>work_experience</th>
                         <th>Recommendation Letter</th>
-                        <th>Motivation Letter</th>
+                        <th>brief_statement</th>
+                        <th>personal_picture</th>
+                        <th>personal_CV</th>
+                        <th>passport_copy</th>
+                        <th>Reguee_copy</th>
+                        <th>Bachelors_Diploma</th>
+                        <th>Bachelors_Transcript</th>
+                        <th>Equivalency_Paper</th>
+                        <th>Turkish_Proficiency_Document</th>
+                        <th>English_Proficiency_Document</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,37 +96,50 @@ $students = Capsule::table('students')->get();
                         <tr class="<?php echo ($index % 2 == 0) ? 'even' : ''; ?>">
                             <td><?php echo $student->id; ?></td>
                             <td><?php echo $student->submissionId; ?></td>
-                            <td><?php echo $student->firstName; ?></td>
-                            <td><?php echo $student->dateOfBirth; ?></td>
+                            <td><?php echo $student->first_name; ?></td>
+                            <td><?php echo $student->last_name; ?></td>
                             <td><?php echo $student->gender; ?></td>
-                            <td><?php echo $student->tshirtSize; ?></td>
-                            <td><?php echo $student->nationality; ?></td>
-                            <td><?php echo $student->placeOfBirth; ?></td>
-                            <td><?php echo $student->homeAddress; ?></td>
-                            <td><?php echo $student->email; ?></td>
+                            <td><?php echo $student->Citizenship; ?></td>
+                            <td><?php echo $student->dateOfBirth; ?></td>
+                            <td><?php echo $student->Country_of_Residence; ?></td>
+                            <td><?php echo $student->Residence_Permit; ?></td>
+                            <td><?php echo $student->country; ?></td>
                             <td><?php echo $student->telephone; ?></td>
-                            <td><?php echo $student->fathersFullName; ?></td>
-                            <td><?php echo $student->fathersEmail; ?></td>
-                            <td><?php echo $student->fathersTelephone; ?></td>
-                            <td><?php echo $student->mothersFullName; ?></td>
-                            <td><?php echo $student->mothersEmail; ?></td>
-                            <td><?php echo $student->mothersTelephone; ?></td>
-                            <td><?php echo $student->passportName; ?></td>
-                            <td><?php echo $student->givenPlace; ?></td>
-                            <td><?php echo $student->passportNumber; ?></td>
-                            <td><?php echo $student->expiryDate; ?></td>
+                            <td><?php echo $student->home_address; ?></td>
+                            <td><?php echo $student->City; ?></td>
+                            <td><?php echo $student->Postal_Code; ?></td>
+                            <td><?php echo $student->fathers_full_name; ?></td>
+                            <td><?php echo $student->Occupation_first; ?></td>
+                            <td><?php echo $student->fathers_email; ?></td>
+                            <td><?php echo $student->fathers_telephone; ?></td>
+                            <td><?php echo $student->mothers_full_name; ?></td>
+                            <td><?php echo $student->Occupation_second; ?></td>
+                            <td><?php echo $student->mothers_email; ?></td>
+                            <td><?php echo $student->mothers_telephone; ?></td>
+                            <td><?php echo $student->passport_availablitiy; ?></td>
+                            <td><?php echo $student->Reguee_availablitiy; ?></td>
+                            <td><?php echo $student->Reguee_number; ?></td>
+                            <td><?php echo $student->issueing_country; ?></td>
+                            <td><?php echo $student->Bachelor_University; ?></td>
+                            <td><?php echo $student->Bachelor_program; ?></td>
+                            <td><?php echo $student->Bachelor_country; ?></td>
+                            <td><?php echo $student->Bachelor_gpa; ?></td>
+                            <td><?php echo $student->Start_Bachelor; ?></td>
+                            <td><?php echo $student->End_Bachelor; ?></td>
+                            <td><?php echo $student->Turkish_Proficiency; ?></td>
+                            <td><?php echo $student->English_Proficiency; ?></td>
                             <td><?php echo $student->course; ?></td>
-                            <td><?php echo $student->institutionName; ?></td>
-                            <td><?php echo $student->department; ?></td>
-                            <td><?php echo $student->institutionAddress; ?></td>
-                            <td><?php echo $student->institutionEmail; ?></td>
-                            <td><?php echo $student->institutionTelephone; ?></td>
-                            <td><?php echo $student->iban; ?></td>
-                            <td><a href="/uploads/<?php echo $student->passportName."/". $attachment->studentCertificate; ?>"><?php echo isset($attachment->studentCertificate) ? $attachment->studentCertificate : ''; ?></a></td>
-                            <td><a href="/uploads/<?php echo $student->passportName."/". $attachment->photo; ?>"><?php echo isset($attachment->photo) ? $attachment->photo : ''; ?></a></td>
-                            <td><a href="/uploads/<?php echo $student->passportName."/". $attachment->passportCopy; ?>"><?php echo isset($attachment->passportCopy) ? $attachment->passportCopy : ''; ?></a></td>
-                            <td><a href="/uploads/<?php echo $student->passportName."/". $attachment->RecommendationLetter; ?>"><?php echo isset($attachment->RecommendationLetter) ? $attachment->RecommendationLetter : ''; ?></td>
-                            <td><a href="/uploads/<?php echo $student->passportName."/". $attachment->MotivationLetter; ?>"><?php echo isset($attachment->MotivationLetter) ? $attachment->MotivationLetter : ''; ?></td>
+                            <td><?php echo $student->work_experience; ?></td>
+                            <td><?php echo $student->brief_statement; ?></td>
+                            <td><a href="/uploads/<?php echo $student->first_name."/". $attachment->personal_picture; ?>"><?php echo isset($attachment->personal_picture) ? $attachment->personal_picture : ''; ?></a></td>
+                            <td><a href="/uploads/<?php echo $student->first_name."/". $attachment->personal_CV; ?>"><?php echo isset($attachment->personal_CV) ? $attachment->personal_CV : ''; ?></a></td>
+                            <td><a href="/uploads/<?php echo $student->first_name."/". $attachment->passport_copy; ?>"><?php echo isset($attachment->passport_copy) ? $attachment->passport_copy : ''; ?></a></td>
+                            <td><a href="/uploads/<?php echo $student->first_name."/". $attachment->Reguee_copy; ?>"><?php echo isset($attachment->Reguee_copy) ? $attachment->Reguee_copy : ''; ?></td>
+                            <td><a href="/uploads/<?php echo $student->first_name."/". $attachment->Bachelors_Diploma; ?>"><?php echo isset($attachment->Bachelors_Diploma) ? $attachment->Bachelors_Diploma : ''; ?></td>
+                            <td><a href="/uploads/<?php echo $student->first_name."/". $attachment->Bachelors_Transcript; ?>"><?php echo isset($attachment->Bachelors_Transcript) ? $attachment->Bachelors_Transcript : ''; ?></td>
+                            <td><a href="/uploads/<?php echo $student->first_name."/". $attachment->Equivalency_Paper; ?>"><?php echo isset($attachment->Equivalency_Paper) ? $attachment->Equivalency_Paper : ''; ?></td>
+                            <td><a href="/uploads/<?php echo $student->first_name."/". $attachment->Turkish_Proficiency_Document; ?>"><?php echo isset($attachment->Turkish_Proficiency_Document) ? $attachment->Turkish_Proficiency_Document : ''; ?></td>
+                            <td><a href="/uploads/<?php echo $student->first_name."/". $attachment->English_Proficiency_Document; ?>"><?php echo isset($attachment->English_Proficiency_Document) ? $attachment->English_Proficiency_Document : ''; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
