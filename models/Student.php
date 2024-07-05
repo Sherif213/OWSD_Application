@@ -15,6 +15,7 @@ class Student extends Model {
         'dateOfBirth',
         'Country_of_Residence',
         'Residence_Permit',
+        'personal_email',
         'country',
         'telephone',
         'home_address',

@@ -78,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'dateOfBirth' => $_POST['date_of_birth'],
         'Country_of_Residence' => $countryName2,
         'Residence_Permit' => $_POST['Residence_Permit'],
+        'personal_email' => $_POST['personal_email'],
         'country' => $countryName3,
         'telephone' => $_POST['telephone'],
         'home_address' => $_POST['home_address'],

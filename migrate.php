@@ -45,6 +45,7 @@ try {
             $table->date('dateOfBirth');
             $table->string('Country_of_Residence')->nullable();
             $table->string('Residence_Permit')->nullable();
+            $table->string('personal_email')->nullable();
             $table->string('country')->nullable();
             $table->string('telephone')->nullable();
             $table->string('home_address')->nullable();
