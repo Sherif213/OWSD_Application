@@ -21,7 +21,7 @@
             <div class="programDatesContent">
                 <select class="form-control">
                     <option value="">-- Programs --</option>
-                    <?php include "include/programs.php" ?>
+                    <?php include "include/program.php" ?>
                 </select>
             </div>
         </div>
@@ -84,11 +84,12 @@
         </div>
         <div class="bottom-section3">
             <div class="left-section3">
-                <label for="Residence_Permit">Do you have a Residence Permit in Turkiye?</label>
+                <label for="Residence_Permit">What is your legal status in Turkiye?</label>
                 <select class="form-control" id="Residence_Permit" name="Residence_Permit" required>
                     <option selected>--Select--</option>
-                    <option value="YES">Yes</option>
-                    <option value="NO">No</option>
+                    <option value="International Protection status">International Protection status</option>
+                    <option value="Temporary Protection status">Temporary Protection status</option>
+                    <option value="International Protection applicant">International Protection applicant</option>
                 </select>
             </div>
             <div class="right-section3">
@@ -207,39 +208,28 @@
     <div class="information-container5">
         <div class="container-headline1">
             <img src="images/Passport.jpg" alt="Texture Image" class="texture-image2">
-            <h2 class="headline1">PASSPORT / REFUGEE INFORMATION</h2>
+            <h2 class="headline1">INTERNATIONAL / TEMPORARY PROTECTION <br> INFORMATION</h2>
         </div>
 
         <div class="bottom-section3">
             <div class="left-section3">
-                <label for="Reguee_availablitiy">Do you have a Refugee Document?</label>
-                <select class="form-control" id="Reguee_availablitiy" name="Reguee_availablitiy" required
-                    onchange="toggleRefugeeFields()">
-                    <option selected>--Select--</option>
-                    <option value="YES">Yes</option>
-                    <option value="NO">No</option>
-                </select>
+                <label for="Reguee_copy">Upload your Protection status ID obtained from the Turkish authorities</label>
+                <input type="file" class="form-control" id="Reguee_copy" name="Reguee_copy">
             </div>
-            <div class="right-section3 hidden" id="refugeeNumberSection">
-                <label for="Reguee_number">Refugee Document Number</label>
+            <div class="right-section3" id="refugeeNumberSection">
+                <label for="Reguee_number">Your protection ID number (&quot;the Protection status ID number starts with 99 and has 11 digits&quot;)</label>
                 <input type="text" class="form-control" id="Reguee_number" name="Reguee_number">
             </div>
         </div>
 
-        <div class="bottom-section3 hidden" id="refugeeCopySection">
+        <div class="bottom-section3" id="refugeeCopySection">
             <div class="left-section3">
-                <label for="Reguee_copy">Refugee Document Copy</label>
-                <input type="file" class="form-control" id="Reguee_copy" name="Reguee_copy">
-            </div>
-            <div class="right-section3">
                 <label for="issueing_country">Country Of Issue</label>
                 <select name="issueing_country" class="form-control" required>
                     <option value="">-- Select Country Of Issue --</option>
                     <?php include "include/Citizenship.php" ?>
             </div>
-        </div>
-        <div class="bottom-section3">
-            <div class="left-section3">
+            <div class="right-section3">
                 <label for="passport_availablitiy">Do you have a Passport?</label>
                 <select class="form-control" id="passport_availablitiy" name="passport_availablitiy" required
                     onchange="togglePassportFields()">
@@ -248,7 +238,9 @@
                     <option value="NO">No</option>
                 </select>
             </div>
-            <div class="right-section3 hidden" id="passportCopySection">
+        </div>
+        <div class="bottom-section3">
+            <div class="left-section3 hidden" id="passportCopySection">
                 <label for="passport_copy">Passport Copy</label>
                 <input type="file" class="form-control" id="passport_copy" name="passport_copy">
             </div>
@@ -395,7 +387,7 @@
             <label class="checkbox-container">
                 <input type="checkbox" class="checkbox-input" required>
                 <span class="checkmark"></span>
-                <span class="checkbox-text">I confirm that I am a holder of a valid refugee status:
+                <span class="checkbox-text">I confirm that I am a holder of a valid protection status in Türkiye:
                     (Temporary Protection)_
                     (International Protection)_
                     (International Protection Applicants)_
@@ -450,7 +442,7 @@
     <div class="information-container8">
         <div class="bottom-section3">
             <div class="left-section3">
-                <div class="g-recaptcha" data-sitekey="6LdsPwUqAAAAAP8jckcGakQSZ3Byls4vQSi1a4EB"></div>
+                <div class="g-recaptcha" data-sitekey="6LdOEg0qAAAAALhb5jM-B306ewND3H1KuhBrFiPF"></div>
             </div>
             <div class="right-section3">
                 <div class="alert alert-danger" role="alert">

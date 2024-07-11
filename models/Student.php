@@ -30,7 +30,6 @@ class Student extends Model {
         'mothers_email',
         'mothers_telephone',
         'passport_availablitiy',
-        'Reguee_availablitiy',
         'Reguee_number',
         'issueing_country',
         'Bachelor_University',

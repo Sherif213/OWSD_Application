@@ -93,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'mothers_email' => $_POST['mothers_email'],
         'mothers_telephone' => $_POST['mothers_telephone'],
         'passport_availablitiy' => $_POST['passport_availablitiy'],
-        'Reguee_availablitiy' => $_POST['Reguee_availablitiy'],
         'Reguee_number' => isset($_POST['Reguee_number']) ? $_POST['Reguee_number'] : null,
         'issueing_country' => $countryName5,
         'Bachelor_University' => $_POST['Bachelor_University'],

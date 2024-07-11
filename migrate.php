@@ -60,7 +60,6 @@ try {
             $table->string('mothers_email')->nullable();
             $table->string('mothers_telephone')->nullable();
             $table->string('passport_availablitiy')->nullable();
-            $table->string('Reguee_availablitiy')->nullable();
             $table->string('Reguee_number')->nullable();
             $table->string('issueing_country')->nullable();
             $table->string('Bachelor_University')->nullable();

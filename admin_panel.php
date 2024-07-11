@@ -45,7 +45,8 @@ $students = Capsule::table('students')->get();
                         <th>Country of Origin</th>
                         <th>date Of Birth</th>
                         <th>Country of Residence</th>
-                        <th>Residence Permit</th>
+                        <th>Legal Situation</th>
+                        <th>Personal Email</th>
                         <th>country</th>
                         <th>telephone</th>
                         <th>home address</th>
@@ -60,7 +61,6 @@ $students = Capsule::table('students')->get();
                         <th>Mother's Email</th>
                         <th>Mother's Telephone</th>
                         <th>passport availablitiy</th>
-                        <th>Reguee_availablitiy</th>
                         <th>Reguee number</th>
                         <th>issueing country</th>
                         <th>Bachelor University</th>
@@ -71,10 +71,8 @@ $students = Capsule::table('students')->get();
                         <th>End Bachelor</th>
                         <th>Turkish Proficiency</th>
                         <th>English Proficiency</th>
-                        <th>Student Certificate</th>
                         <th>Program</th>
                         <th>work_experience</th>
-                        <th>Recommendation Letter</th>
                         <th>brief_statement</th>
                         <th>personal_picture</th>
                         <th>personal_CV</th>
@@ -103,6 +101,7 @@ $students = Capsule::table('students')->get();
                             <td><?php echo $student->dateOfBirth; ?></td>
                             <td><?php echo $student->Country_of_Residence; ?></td>
                             <td><?php echo $student->Residence_Permit; ?></td>
+                            <td><?php echo $student->personal_email; ?></td>
                             <td><?php echo $student->country; ?></td>
                             <td><?php echo $student->telephone; ?></td>
                             <td><?php echo $student->home_address; ?></td>
@@ -117,7 +116,6 @@ $students = Capsule::table('students')->get();
                             <td><?php echo $student->mothers_email; ?></td>
                             <td><?php echo $student->mothers_telephone; ?></td>
                             <td><?php echo $student->passport_availablitiy; ?></td>
-                            <td><?php echo $student->Reguee_availablitiy; ?></td>
                             <td><?php echo $student->Reguee_number; ?></td>
                             <td><?php echo $student->issueing_country; ?></td>
                             <td><?php echo $student->Bachelor_University; ?></td>
