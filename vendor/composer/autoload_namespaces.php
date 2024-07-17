@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
+    'Google_' => array($vendorDir . '/google/apiclient/src'),
 );

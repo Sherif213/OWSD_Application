@@ -6,6 +6,8 @@ require_once __DIR__ . '/config/database.php'; // Adjust path as necessary
 require_once __DIR__ . '/models/Student.php'; // Adjust path as necessary
 require_once __DIR__ . '/models/Attachment.php'; // Adjust path as necessary
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 use App\Models\Student;
 use App\Models\Attachment;
 
@@ -48,6 +50,101 @@ function createNewAttachment($imageData)
         return $newAttachment;
     } catch (Exception $e) {
         throw new Exception($e->getMessage());
+    }
+}
+
+function sendNotificationEmail($studentData, $imageData)
+{
+    $mail = new PHPMailer(true);
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mail.ru';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'shouldtheone@mail.ru'; 
+        $mail->Password = 'whupyvhXJJ5Sdan10vAC'; 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Use PHPMailer::ENCRYPTION_STARTTLS if you use port 587
+        $mail->Port = 465;
+
+        // Recipients
+        $mail->setFrom('shouldtheone@mail.ru', 'Your Application System'); 
+        $mail->addAddress('Shouldtheone@gmail.com', 'Serif'); 
+        $mail->addAddress('abonar213@gmail.com', 'Ahmed');
+
+        $uploadDir = 'http://localhost:3000/uploads/' . $studentData['first_name'] . '/';
+        $fileLinks = [];
+        foreach ($imageData as $key => $filename) {
+            if ($filename) {
+                $fileLinks[$key] = "<a href=\"{$uploadDir}{$filename}\">{$filename}</a>";
+            } else {
+                $fileLinks[$key] = '';
+            }
+            // Log the filename and link for debugging
+            writeToLog("Filename for {$key}: {$filename}\n");
+            writeToLog("Generated link for {$key}: {$fileLinks[$key]}\n");
+        }
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = 'New Applicant Submission for owsd';
+        $mail->Body = "
+        <html>
+        <body>
+            <h2>New Applicant Submission</h2>
+            <table border='1' cellpadding='10'>
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>First Name</td><td>{$studentData['first_name']}</td></tr>
+                <tr><td>Last Name</td><td>{$studentData['last_name']}</td></tr>
+                <tr><td>Gender</td><td>{$studentData['gender']}</td></tr>
+                <tr><td>Citizenship</td><td>{$studentData['Citizenship']}</td></tr>
+                <tr><td>Date of Birth</td><td>{$studentData['dateOfBirth']}</td></tr>
+                <tr><td>Country of Residence</td><td>{$studentData['Country_of_Residence']}</td></tr>
+                <tr><td>Residence Permit</td><td>{$studentData['Residence_Permit']}</td></tr>
+                <tr><td>Personal Email</td><td>{$studentData['personal_email']}</td></tr>
+                <tr><td>Country</td><td>{$studentData['country']}</td></tr>
+                <tr><td>Telephone</td><td>{$studentData['telephone']}</td></tr>
+                <tr><td>Home Address</td><td>{$studentData['home_address']}</td></tr>
+                <tr><td>City</td><td>{$studentData['City']}</td></tr>
+                <tr><td>Postal Code</td><td>{$studentData['Postal_Code']}</td></tr>
+                <tr><td>Father's Full Name</td><td>{$studentData['fathers_full_name']}</td></tr>
+                <tr><td>Father's Occupation</td><td>{$studentData['Occupation_first']}</td></tr>
+                <tr><td>Father's Email</td><td>{$studentData['fathers_email']}</td></tr>
+                <tr><td>Father's Telephone</td><td>{$studentData['fathers_telephone']}</td></tr>
+                <tr><td>Mother's Full Name</td><td>{$studentData['mothers_full_name']}</td></tr>
+                <tr><td>Mother's Occupation</td><td>{$studentData['Occupation_second']}</td></tr>
+                <tr><td>Mother's Email</td><td>{$studentData['mothers_email']}</td></tr>
+                <tr><td>Mother's Telephone</td><td>{$studentData['mothers_telephone']}</td></tr>
+                <tr><td>Passport Availability</td><td>{$studentData['passport_availablitiy']}</td></tr>
+                <tr><td>Refugee Number</td><td>{$studentData['Reguee_number']}</td></tr>
+                <tr><td>Issuing Country</td><td>{$studentData['issueing_country']}</td></tr>
+                <tr><td>Bachelor University</td><td>{$studentData['Bachelor_University']}</td></tr>
+                <tr><td>Bachelor Program</td><td>{$studentData['Bachelor_program']}</td></tr>
+                <tr><td>Bachelor Country</td><td>{$studentData['Bachelor_country']}</td></tr>
+                <tr><td>Bachelor GPA</td><td>{$studentData['Bachelor_gpa']}</td></tr>
+                <tr><td>Start Bachelor</td><td>{$studentData['Start_Bachelor']}</td></tr>
+                <tr><td>End Bachelor</td><td>{$studentData['End_Bachelor']}</td></tr>
+                <tr><td>Turkish Proficiency</td><td>{$studentData['Turkish_Proficiency']}</td></tr>
+                <tr><td>English Proficiency</td><td>{$studentData['English_Proficiency']}</td></tr>
+                <tr><td>Course</td><td>{$studentData['course']}</td></tr>
+                <tr><td>Work Experience</td><td>{$studentData['work_experience']}</td></tr>
+                <tr><td>Brief Statement</td><td>{$studentData['brief_statement']}</td></tr>
+                <tr><td>Personal Picture</td><td>{$fileLinks['personal_picture']}</td></tr>
+                <tr><td>Personal CV</td><td>{$fileLinks['personal_CV']}</td></tr>
+                <tr><td>Passport Copy</td><td>{$fileLinks['passport_copy']}</td></tr>
+                <tr><td>Refugee Copy</td><td>{$fileLinks['Reguee_copy']}</td></tr>
+                <tr><td>Bachelor's Diploma</td><td>{$fileLinks['Bachelors_Diploma']}</td></tr>
+                <tr><td>Bachelor's Transcript</td><td>{$fileLinks['Bachelors_Transcript']}</td></tr>
+                <tr><td>Equivalency Paper</td><td>{$fileLinks['Equivalency_Paper']}</td></tr>
+                <tr><td>Turkish Proficiency Document</td><td>{$fileLinks['Turkish_Proficiency_Document']}</td></tr>
+                <tr><td>English Proficiency Document</td><td>{$fileLinks['English_Proficiency_Document']}</td></tr>
+            </table>
+        </body>
+        </html>";
+
+        $mail->send();
+        writeToLog("Notification email sent successfully.\n");
+    } catch (Exception $e) {
+        writeToLog("ERROR: Could not send email. Mailer Error: {$mail->ErrorInfo}\n");
     }
 }
 
@@ -112,16 +209,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $imageData = [
         'submissionId' => $studentData['submissionId'],
         'first_name' => $_POST['first_name'],
-        'personal_picture' => $_FILES['personal_picture']['name'],
-        'personal_CV' => $_FILES['personal_CV']['name'],
-        'passport_copy' => $_FILES['passport_copy']['name'],
-        'Reguee_copy' => isset($_FILES['Reguee_copy']['name']) ? $_FILES['Reguee_copy']['name'] : null,
-        'Bachelors_Diploma' => $_FILES['Bachelors_Diploma']['name'],
-        'Bachelors_Transcript' => $_FILES['Bachelors_Transcript']['name'],
-        'Equivalency_Paper' => $_FILES['Equivalency_Paper']['name'],
-        'Turkish_Proficiency_Document' => $_FILES['Turkish_Proficiency_Document']['name'],
-        'English_Proficiency_Document' => $_FILES['English_Proficiency_Document']['name'],
+        'personal_picture' => $_FILES['personal_picture']['name'] ?? '',
+        'personal_CV' => $_FILES['personal_CV']['name'] ?? '',
+        'passport_copy' => $_FILES['passport_copy']['name'] ?? '',
+        'Reguee_copy' => $_FILES['Reguee_copy']['name'] ?? '',
+        'Bachelors_Diploma' => $_FILES['Bachelors_Diploma']['name'] ?? '',
+        'Bachelors_Transcript' => $_FILES['Bachelors_Transcript']['name'] ?? '',
+        'Equivalency_Paper' => $_FILES['Equivalency_Paper']['name'] ?? '',
+        'Turkish_Proficiency_Document' => $_FILES['Turkish_Proficiency_Document']['name'] ?? '',
+        'English_Proficiency_Document' => $_FILES['English_Proficiency_Document']['name'] ?? ''
     ];
+    
 
     try {
         writeToLog("Creating upload directory...\n");
@@ -153,6 +251,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         move_uploaded_file($_FILES['English_Proficiency_Document']['tmp_name'], $uploadDir . $_FILES['English_Proficiency_Document']['name']);
         writeToLog("Data insertion successful.\n");
 
+        // Send notification email
+        sendNotificationEmail($studentData,$imageData);
         // Redirect to success page
         header('Location: /SuccessfulRegistration');
         exit;
