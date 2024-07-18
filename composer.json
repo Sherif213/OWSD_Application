@@ -14,7 +14,6 @@
     ],
     "require": {
         "illuminate/database": "^11.9",
-        "phpmailer/phpmailer": "^6.9",
-        "google/apiclient": "2.0"
+        "phpmailer/phpmailer": "^6.9"
     }
 }
