@@ -39,6 +39,7 @@ $routes = [
     'SuccessfulRegistration' => 'signUpSuccessful.php',
     'secretAdmin' => 'login.php',
     'applicationFormAdminPanel' => 'admin_panel.php',
+    'authentication' => 'enter_passcode.php',
     'contact' => 'contact.php',
 ];
 
