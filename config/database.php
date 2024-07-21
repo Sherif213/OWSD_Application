@@ -6,9 +6,9 @@ $capsule = new Capsule;
 $capsule->addConnection([
     'driver'    => 'mysql',
     'host'      => 'localhost',
-    'database'  => 'owsd',
-    'username'  => 'root',
-    'password'  => '1532910',
+    'database' => 'unesco_owsdapp',
+    'username' => 'unesco_owsdapp',
+    'password' => 'nNxWgcRah0HQ',
     'charset'   => 'utf8mb4',
     'collation' => 'utf8mb4_general_ci',
     'prefix'    => '',

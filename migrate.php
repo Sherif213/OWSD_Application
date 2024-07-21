@@ -16,14 +16,14 @@ try {
 
     // Set the database connection
     $capsule->addConnection([
-        'driver' => 'mysql',
-        'host' => 'localhost',
-        'database' => 'owsd',
-        'username' => 'root',
-        'password' => '1532910',
-        'charset' => 'utf8mb4',
-        'collation' => 'utf8mb4_general_ci',
-        'prefix' => '',
+        'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database' => 'unesco_owsdapp',
+    'username' => 'unesco_owsdapp',
+    'password' => 'nNxWgcRah0HQ',
+    'charset'   => 'utf8mb4',
+    'collation' => 'utf8mb4_general_ci',
+    'prefix'    => '',
     ]);
 
     // Set the Capsule Manager instance as global
