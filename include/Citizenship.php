@@ -171,7 +171,6 @@
 <option value="208">PUERTO RICO, UNITED STATES</option>
 <option value="37">QATAR</option>
 <option value="251">REPUBLIC OF SOUTH SUDAN</option>
-<option value="1">REPUBLIC OF TÜRKİYE</option>
 <option value="209">Réunion, FRANCE</option>
 <option value="60">ROMANIA</option>
 <option value="62">RUSSIAN FEDERATION</option>
@@ -220,6 +219,7 @@
 <option value="74">TUNISIA</option>
 <option value="45">TURKISH REPUBLIC OF NORTHERN CYPRUS</option>
 <option value="75">TURKMENISTAN</option>
+<option value="1">TÜRKİYE</option>
 <option value="233">Turks and Caicos Islands, England</option>
 <option value="234">TUVALU</option>
 <option value="76">UGANDA</option>
